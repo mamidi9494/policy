@@ -1,0 +1,24 @@
+::Need to save on .bat format
+
+@echo off
+
+:: Download the AWS CLI installer
+curl -o awscliv2.exe "https://awscli.amazonaws.com/AWSCLIV2.msi"
+
+:: Install the AWS CLI
+msiexec /i awscliv2.exe /quiet
+
+:: Verify AWS CLI installation
+aws --version
+
+:: Configure the "prod" profile
+aws configure --profile prod
+:: You will be prompted to enter the AWS Access Key ID, Secret Access Key, default region, and output format.
+
+:: Configure the "nonprod" profile
+aws configure --profile nonprod
+:: You will be prompted to enter the AWS Access Key ID, Secret Access Key, default region, and output format.
+
+:: Clean up the installer file
+del awscliv2.exe
+
